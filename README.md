@@ -142,27 +142,34 @@ This repository contains a Simulink-based framework designed for the execution, 
 
 ![testsite](./docs/overview_testsite.png "Overview of the test site")
 
-Wind turbine orientation was controlled through a programmable logic computer (PLC) installed at the base of WT1. Wind direction and speed were measured by a met-mast approximately 300m north of the turbine. This inflow data determined the wind direction sector, used to assess the offset provided as an additional input to the wind vane sensor on the turbine nacelle, which, in turn, was fed to the wind turbine controller.
+Wind direction and speed were measured by a met-mast located approximately 300m north of the turbine. This inflow data determined the wind direction sector and, subsequently, the offset calculation. This offset, combined with the misalignment provided by a wind vane sensor on the turbine nacelle, formed a signal that was then fed into the wind turbine controller. The offset calculation, was performed through a programmable logic computer (PLC) installed at the base of WT1.
 
 ## How to Use This Repository
 
 ### Prerequisites:
 
+This repository is an extension of PAL, a Matlab-based framework for the development, deployment, and testing of interconnected PLC applications PAL([GitHub:](https://github.com/TUMLWE/PAL). Before using this repository, an user is recommended to have familiarized with PAL following the provided examples. An in-depth documentation is hosted on Read the Docs: [PAL Documentation](https://tumlwepal-rtd.readthedocs.io/en/latest/index.html). 
+
+
 ### Installation:
 
-This repository is an extension of the framework for the development, deployment, and testing of interconnected PLC applications PAL (insert link). It includes a set of files and Simulink models that constitute PAL inputs. These can be used to deploy a toggler for coordinating different wake steering strategies. For details on PAL setup, model development, and new project development, please refer to the respective documentation. Place this repository as a submodule of PAL in the \Examples folder.
+This repository is intended to serve as a submodule within PAL, and it should be incorporated into the \Examples folder of the PAL framework.
+
 
 ## Usage
 
 ### General Framework Architecture
 
-Following the three-layered approach of PAL, three layers have been included in the present framework for wind farm control: ITFC, HOST, and SUBMODEL apps. The framework runs on a Bachmann PLC.
+Adopting the three-layered approach of *PAL*, the current framework for wind farm control comprises *ITFC*, *HOST*, and *SUBMODEL* applications. In the conducted experiments, the framework was operated on a Bachmann *PLC* at 10 Hz.
 
-- An ITFC app, developed by the wind turbine manufacturer, provides all necessary data and connects to the turbine controller.
-- A HOST model manages activities such as reading/writing data to/from ITFC applications and hosting data for SUBMODEL access.
-- SUBMODEL applications, detailed in the PAL - User Manual (insert link), perform higher-level tasks through Simulink models.
+During experiments, the *ITFC* app was developed by the wind turbine manufacturer and connected to the turbine controller. This app provided all necessary data for the framework execution. This includes *SCADA* data, which were used to monitor the status of the turbines, but also data from a met-mast, which was located in the proximity of the turbines and was used to assess the inflow.
 
-Mention the different input files.
+The *HOST* model undertakes critical responsibilities, including exchanging data with *ITFC* applications, hosting data for *SUBMODEL* access (both read and write), and generating output ".txt" files.
+
+As described in details in the [PAL Documentation](https://tumlwepal-rtd.readthedocs.io/en/latest/index.html), *SUBMODEL* applications perform all the higher-level tasks and are provided in the form of *Simulink* models. A detailed description of the specific *SUBMODEL* apps and their operation is provided in the following section.
+
+Each *PAL* project requires two Excel files as input: "*inputfile.xlsx*" and "*SVI_Definition.xlsx*." In consideration of potential storage issues on the *PLC* during testing, the repository includes an additional set of inputs labeled "test" alongside the default files. These test inputs are designed to facilitate focused testing of specific framework subsections, enabling the utilization of extended time histories for the test *ITFC*, thus limiting storage requirements.
+
 
 ### Wake Steering Application
 
