@@ -56,6 +56,6 @@ research institutes. A further non-steered ”Greedy” case was also considered
 provided a reference performance used for comparison. The toggling was performed on
 the three strategies on a time interval of 35 minutes.
 
-![WFC Framework](wfc_framework_apps.png)
+![WFC Framework](./docs/wfc_framework_apps.png)
 
-
+![Toggler](./docs/wfc_framework_toggler.png)
