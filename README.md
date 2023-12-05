@@ -20,6 +20,23 @@ affiliations:
    index: 2
 ---
 
+
+## Table of Contents
+
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
+
+
+
 # A framework for the coordination of Wake Steering strategies
 
 ## Introduction
@@ -80,16 +97,11 @@ Simultaneously, a check is performed to verify the availability of the other app
 
 Toggling is performed on all available strategies of the active sector, on a user-defined time interval (in the present example set to 35 minutes). It is worth reminding that in the Simulink model included, an additional non-controlled "Greedy" was included as a reference, whose offset was set to zero.
 
-Additional time-management functionalities are included to prioritize strategies that have been run less than others, and can be activated and defined through the relative **init** file.
+Additional time-management functionalities are included to prioritize strategies that have been run less time than others, and can be activated and defined through the relative **init** file.
 
-Offsets from all the **OFFSET** applications are provided as inputs to the **TOGGLER** application. The main job 
+Offsets from all the **OFFSET** applications are provided as inputs to the **TOGGLER** application. The appropriate strategy is selected from all the available offsets based on the above mentioned checks. 
 
-
-The experiments
-aimed at assessing the performance of two strategies and were developed by two separate
-research institutes. A further non-steered ”Greedy” case was also considered, which
-provided a reference performance used for comparison. The toggling was performed on
-the three strategies on a time interval of 35 minutes.
+The demanded offset can be further passed through a "Saturation block" (a "dummy" version is included in the present example), which can be used to perform additional processing on the signal. During the experiments of CompactWind2, for example, this block was built based on the wind turbine yaw controller to prevent involuntary shutdown during sudden switch of wake steering strategy. Clipping of the yaw offset according to manufacturer requirements can also be applied, if necessary.
 
 
 
