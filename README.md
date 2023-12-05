@@ -1,6 +1,6 @@
 ---
 title: >-
-Wake Steering framework extension for PAL
+  Wake Steering framework extension for PAL
 
 authors:
   - name: Carlo R Sucameli
