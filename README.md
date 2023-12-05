@@ -3,7 +3,7 @@ title: >-
 Wake Steering framework extension for PAL
 
 authors:
-  - name: Carlo R. Sucameli
+  - name: Carlo R Sucameli
     affiliation: 1
   - name: Filippo Campagnolo
     affiliation: 1
@@ -11,7 +11,7 @@ authors:
     affiliation: 2
   - name: Paul Hulsman
     affiliation: 2
-  - name: Carlo L. Bottasso
+  - name: Carlo L Bottasso
     affiliation: 1    
 affiliations:
  - name: Lehrstuhl für Windenergie, Technische Universität München
