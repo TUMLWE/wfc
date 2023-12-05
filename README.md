@@ -24,11 +24,11 @@ affiliations:
 
 ## Introduction
 
-The present repository contains a Simulink-based framework for the execution, monitoring and coordination of wake steering strategies on a single wind turbine. This framework was used to coordinate two different sets of experiments. The first aimed at wind power maximization through wake steering, and the second aimed at applying fixed offsets to a wind turbine to characterize its wake through LiDARs. The experiments were conducted jointly by the Lehrstuhl für Windenergie of the Technische Universität München and by the ForWind – Center for Wind Energy Research of the University of Oldenburg. The experimental test site is located in the north of Germany, and is composed of two-wind turbines. An aerial view of the test site is provided in Fig. [testsite](./docs/overview_testsite.png)
-
-The present models have been readapted and redacted from those used during the wake steering campaign of the project compact wind 2 and developed by the Technical University of munich and the university of oldenburg. The main goal of the project campaign was to conduct  wake steering on a specific wind direction sector (plus the additional toggling with a greedy case). Two separate wake steering strategies were tested simultaneously, thus necessitating a shared platform for execution. a fixed offset toggling is also performed on a different wind direction sector. Simulink models for inflow determination, offset calculation and toggling were developed, which were then converted to C code and implemented on a programmable logic computer. The PLC was then connected to the turbine controller, reading inputs from the scada system and providing back the offseted signal, which was added to the wind turbine misalignment and fed to the wind turbine controller.
+The present repository contains a Simulink-based framework for the execution, monitoring and coordination of wake steering strategies on a single wind turbine. This framework, generalized to exclude any confidential information, was used to coordinate two different sets of experiments. The first aimed at wind power maximization through wake steering, and the second aimed at applying fixed offsets to a wind turbine to characterize its wake through LiDARs. The experiments were conducted jointly by the Lehrstuhl für Windenergie of the Technische Universität München and by the ForWind – Center for Wind Energy Research of the University of Oldenburg. The experimental test site is located in the north of Germany, and is composed of two-wind turbines. An aerial view of the test site is provided [below](./docs/overview_testsite.png)
 
 ![testsite](./docs/overview_testsite.png "Overview of the test site")
+
+Wind turbine orientation was controlled through a programmable logic computer (PLC) installed at the base of WT1. During the experiment, wind direction and speed was measured through a met-mast installed approximately 300m north of the turbine. This inflow was used to determine the wind direction sector, which was used to assess which offset to provide as an additional input to the wind vane sensor installed on the turbine nacelle, which was therefore fed to the wind turbine controller.
 
 
 ##  How to use this repository:
@@ -49,7 +49,24 @@ As described in details in the PAL - User Manual (insert link), SUBMODEL applica
 
 ## Wake Steering Application
 
-The submodels relative to wake steering are visible in Fig.~\ref{WFC-framework}, for an exemplary situation where two wake steering strategies are simultaneously tested. Each strategy is composed of two applications. The first, an "INFLW" app, determines the wind farm inflow. The second is a "WFC" app, which reads the inflow quantities and calculates the wind turbine offset. The main supervision task is performed by the "TOGGLER" application, which performs important tasks such as determining which strategy offset should be fed to the HOST (and therefore, to the turbine controller), according to a user-defined sequence. The "TOGGLER" also ensures that WFC is active only within prescribed inflow conditions. A thorough description of the wake steering applications will be provided in the full paper version.
+An overview of the SUBMODELS that compose the present framework are shown in the following [figure](./docs/wfc_framework_apps.png). A description of each application type is provided below:
+
+![WFC Framework](./docs/wfc_framework_apps.png)
+
+**INFLW**
+
+INFLW blocks perform the task of determining inflow conditions from available inflow measurements, in order to feed them as input for LUT interpolation present in a **OFFSET** block. Two identical Simulink models and **init_** files are provided in the present case for both **INFLW** blocks, but in principle they could be different, to accommodate different design choice of different wake steering strategies. 
+
+In the present example, wind speed inflow is read at two different heights (116.3 and 54.2m), and is used to calculate averaged wind speeds, turbulence intensity and the shear exponent. Wind direction is also provided and averaged. Different moving averagings can be selected for each inflow quantity through the **init_** file. The Simulink model also performs additional checks and the inputs and flags errors if signals are frozen of NaN. The status of the INFLW block i.e. the availability of outputs signals is encoded as a 4 bit signal, which is then converted to integer and provided as an additional output of the model through the variable "output_InflowOK".
+
+**OFFSET**
+
+OFFSET blocks calculate the offsets, which are then fed to the TOGGLER app. 
+
+In the present example, three OFFSET blocks are included. Just as **INFLW**, OFFSET_1 and OFFSET_2 are identical and read inputs from INFLW_1 and INFLW_2, respectively. These very simple Simulink models interpolate sample 4-dimensional LUT. These two offsets are toggled together with a Greedy offset within "Sector 1". OFFSET_3 provides a Simulink model which can be used for fixed offset calculation. This model does not require inputs. Generally speaking, it is not necessary to separate **INFLW** from **OFFSET**, which was done here to increase modularity.
+
+**TOGGLER**
+The main supervision task is performed by the "TOGGLER" application, which performs important tasks such as determining which strategy offset should be fed to the HOST (and therefore, to the turbine controller), according to a user-defined sequence. The "TOGGLER" also ensures that WFC is active only within prescribed inflow conditions. A thorough description of the wake steering applications will be provided in the full paper version.
 
 The present framework was used to oversee wake steering experiments conducted on
 a cluster of two 3.5 MW wind turbines. The experiments
@@ -58,6 +75,6 @@ research institutes. A further non-steered ”Greedy” case was also considered
 provided a reference performance used for comparison. The toggling was performed on
 the three strategies on a time interval of 35 minutes.
 
-![WFC Framework](./docs/wfc_framework_apps.png)
+
 
 ![Toggler](./docs/wfc_framework_toggler.png)
