@@ -1,6 +1,23 @@
 ---
-title: "Untitled"
-author: "John Doe, Jane Doe"
+title: >-
+Wake Steering framework extension for PAL
+
+authors:
+  - name: Carlo R. Sucameli
+    affiliation: 1
+  - name: Filippo Campagnolo
+    affiliation: 1
+  - name: Vlaho Petrović
+    affiliation: 2
+  - name: Paul Hulsman
+    affiliation: 2
+  - name: Carlo L. Bottasso
+    affiliation: 1    
+affiliations:
+ - name: Lehrstuhl für Windenergie, Technische Universität München
+   index: 1
+ - name: ForWind – Center for Wind Energy Research, Institute of Physics, University of Oldenburg
+   index: 2
 ---
 
 # WFC
