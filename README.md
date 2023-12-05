@@ -23,7 +23,7 @@ affiliations:
 
 ## Table of Contents
 
-- [Project Name](#project-name)
+- [A framework for the coordination of Wake Steering strategies](#A framework for the coordination of Wake Steering strategies)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Features](#features)
