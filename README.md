@@ -1,5 +1,11 @@
 # WFC
 
+---
+title: "Untitled"
+author: "John Doe, Jane Doe"
+---
+
+
 ## Introduction
 
 The present repository contains a SImulink-based framework for the execution, monitoring and coordination of wind farm control strategies on a single wind turbine. The present models have been readapted and redacted. from those used during the wake steering campaign of the project compact wind 2 and developed by the Technical University of munich and the university of oldenburg. The main goal of the project campaign was to conduct  wake steering on a specific wind direction sector (plus the additional toggling with a greedy case). Two separate wake steering strategies were tested simultaneously, thus necessitating a shared platform for execution. a fixed offset toggling is also performed on a different wind direction sector. Simulink models for inflow determination, offset calculation and toggling were developed, which were then converted to C code and implemented on a programmable logic computer. The PLC was then connected to the turbine controller, reading inputs from the scada system and providing back the offseted signal, which was added to the wind turbine misalignment and fed to the wind turbine controller.
