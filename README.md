@@ -173,7 +173,7 @@ Each *PAL* project requires two Excel files as input: "*inputfile.xlsx*" and "*S
 
 ### Wake Steering Application
 
-An overview of the SUBMODELS composing the framework is shown in [this figure](./docs/wfc_framework_apps.png). Each application type is described below:
+An overview of the SUBMODELS composing the framework is shown [below](./docs/wfc_framework_apps.png). Each application type is described below:
 
 ![WFC Framework](./docs/wfc_framework_apps.png)
 
