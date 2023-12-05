@@ -33,7 +33,7 @@ affiliations:
   - [Usage](#usage)
     - [General Framework Architecture](#General-Framework-Architecture)
     - [Wake Steering Application](#Wake-Steering-Application)
-  - [Getting help](#getting-help)
+  - [Support](#Support)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -106,9 +106,16 @@ Offsets from all the **OFFSET** applications are provided as inputs to the **TOG
 
 The demanded offset can be further passed through a "Saturation block" (a "dummy" version is included in the present example), which can be used to perform additional processing on the signal. During the experiments of CompactWind2, for example, this block was built based on the wind turbine yaw controller to prevent involuntary shutdown during sudden switch of wake steering strategy. Clipping of the yaw offset according to manufacturer requirements can also be applied, if necessary.
 
-## Getting help
+## Support
 
-## License 
+For any questions, bug reports, or code-related queries, please use [GitHub Issues](https://github.com/TUMLWE/WFC/issues). 
+
+For general questions, feel free to contact Carlo Sucameli (carlo.sucameli@tum.de) 
+
+
+## License
+
+This software is licensed under Apache License Version 2.0.
 
 ## Acknowledgements
 
