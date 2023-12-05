@@ -38,7 +38,8 @@ This repository is an extension of the framework for development, deployment and
 
 
 ## General Framework Architecture:
--------------------------------
+------------------------------------
+
 Following the three layered approach of PAL, three layers have been included in the present framework for wind farm control, ITFC, HOST and SUBMODEL apps. In the experiment, the framework run on a Bachmann plc
 
 An ITFC app, which during the experiments was developed by the wind turbine manufacturer, provided of all necessary data and the connection to the turbine controller was performed by the operator (who developed the "ITFC" app). This includes SCADA data, which were used to monitor the status of the turbines, but also data from a met-mast, which was located in the proximity of the turbines and was used to assess the inflow. The sampling frequency of the PLC system was 10 Hz. 
@@ -46,6 +47,8 @@ An ITFC app, which during the experiments was developed by the wind turbine manu
 A HOST model is tasked with activities such as reading and writing data to and from ITFC applications, as well as hosting data for SUBMODEL access (both read and write), as well as generating the output .txt files.
 
 As described in details in the PAL - User Manual (insert link), SUBMODEL applications perform all the higher level tasks, and are provided in the form of Simulink models. 
+
+Mention the different inputfiles
 
 ## Wake Steering Application
 
@@ -66,10 +69,23 @@ OFFSET blocks calculate the offsets, which are then fed to the TOGGLER app.
 In the present example, three OFFSET blocks are included. Just as **INFLW**, OFFSET_1 and OFFSET_2 are identical and read inputs from INFLW_1 and INFLW_2, respectively. These very simple Simulink models interpolate sample 4-dimensional LUT. These two offsets are toggled together with a Greedy offset within "Sector 1". OFFSET_3 provides a Simulink model which can be used for fixed offset calculation. This model does not require inputs. Generally speaking, it is not necessary to separate **INFLW** from **OFFSET**, which was done here to increase modularity.
 
 **TOGGLER**
-The main supervision task is performed by the "TOGGLER" application, which performs important tasks such as determining which strategy offset should be fed to the HOST (and therefore, to the turbine controller), according to a user-defined sequence. The "TOGGLER" also ensures that WFC is active only within prescribed inflow conditions. A thorough description of the wake steering applications will be provided in the full paper version.
 
-The present framework was used to oversee wake steering experiments conducted on
-a cluster of two 3.5 MW wind turbines. The experiments
+The main supervision task is performed by the "TOGGLER" application, which performs important tasks such as determining which strategy offset should be fed to the HOST (and therefore, to the turbine controller), according to a user-defined sequence. The "TOGGLER" also ensures that WFC is active only within prescribed inflow conditions. A thorough description of the wake steering applications will be provided in the full paper version. A schematics of the TOGGLER application is shown [below](./docs/wfc_framework_apps.png)
+
+![Toggler](./docs/wfc_framework_apps.png)
+
+Generally speaking, the TOGGLER block read its inputs from HOST (like any other application). Information about the inflow characteristics are used to assess which wind direction sector is active and, if so, whether wind conditions are suitable for offset provision. Furthermore, the wind turbine operational status is used to ensure the turbine is in power production. A WFC_status monitors the status of the operations, similarly to the variable "output_InflowOK" of the **INFLW** blocks. 
+
+Simultaneously, a check is performed to verify the availability of the other applications within the PLC, through the status variables of the other SUBMODELS (see PAL documentation for details). This ensures that offset is selected only from active strategies. Manual toggling of strategies is also provided. A further histeresis block is added to prevent rapid switching on and off of the framework (for examples when operating close to the wind directions or wind speed boundaries).
+
+Toggling is performed on all available strategies of the active sector, on a user-defined time interval (in the present example set to 35 minutes). It is worth reminding that in the Simulink model included, an additional non-controlled "Greedy" was included as a reference, whose offset was set to zero.
+
+Additional time-management functionalities are included to prioritize strategies that have been run less than others, and can be activated and defined through the relative **init** file.
+
+Offsets from all the **OFFSET** applications are provided as inputs to the **TOGGLER** application. The main job 
+
+
+The experiments
 aimed at assessing the performance of two strategies and were developed by two separate
 research institutes. A further non-steered ”Greedy” case was also considered, which
 provided a reference performance used for comparison. The toggling was performed on
@@ -77,4 +93,3 @@ the three strategies on a time interval of 35 minutes.
 
 
 
-![Toggler](./docs/wfc_framework_toggler.png)
