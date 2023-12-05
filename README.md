@@ -33,6 +33,7 @@ affiliations:
   - [Usage](#usage)
     - [General Framework Architecture](#General-Framework-Architecture)
     - [Wake Steering Application](#Wake-Steering-Application)
+  - [Getting help](#getting-help)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -104,6 +105,12 @@ Additional time-management functionalities are included to prioritize strategies
 Offsets from all the **OFFSET** applications are provided as inputs to the **TOGGLER** application. The appropriate strategy is selected from all the available offsets based on the above mentioned checks. 
 
 The demanded offset can be further passed through a "Saturation block" (a "dummy" version is included in the present example), which can be used to perform additional processing on the signal. During the experiments of CompactWind2, for example, this block was built based on the wind turbine yaw controller to prevent involuntary shutdown during sudden switch of wake steering strategy. Clipping of the yaw offset according to manufacturer requirements can also be applied, if necessary.
+
+## Getting help
+
+## License 
+
+## Acknowledgements
 
 
 
