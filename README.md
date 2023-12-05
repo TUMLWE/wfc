@@ -30,8 +30,9 @@ affiliations:
   - [How to use this repository](#How-to-use-this-repository)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-  - [General Framework Architecture](#General-Framework-Architecture)
-  - [Wake Steering Application](#Wake-Steering-Application)
+  - [Usage](#usage)
+    - [General Framework Architecture](#General-Framework-Architecture)
+    - [Wake Steering Application](#Wake-Steering-Application)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -45,13 +46,17 @@ The present repository contains a Simulink-based framework for the execution, mo
 Wind turbine orientation was controlled through a programmable logic computer (PLC) installed at the base of WT1. During the experiment, wind direction and speed was measured through a met-mast installed approximately 300m north of the turbine. This inflow was used to determine the wind direction sector, which was used to assess which offset to provide as an additional input to the wind vane sensor installed on the turbine nacelle, which was therefore fed to the wind turbine controller.
 
 
-## How to use this repository:
+## Getting Started:
 
+### Prerequisites:
+### Installation:
 
 This repository is an extension of the framework for development, deployment and testing of interconnected PLC applications PAL (insert link). This repository contains a set of files and simulink models, which constitute PAL inputs that can be used to deploy a toggler for coordinating different wake steering strategies. For details on PAL setup, model development and how to develop a new project, please refer to the respective documentation. This repository should be placed as a submodule of PAL, which should be added in the \Examples folder of PAL.
 
 
-## General Framework Architecture:
+## Usage
+
+### General Framework Architecture
 ------------------------------------
 
 Following the three layered approach of PAL, three layers have been included in the present framework for wind farm control, ITFC, HOST and SUBMODEL apps. In the experiment, the framework run on a Bachmann plc
@@ -64,7 +69,7 @@ As described in details in the PAL - User Manual (insert link), SUBMODEL applica
 
 Mention the different inputfiles
 
-## Wake Steering Application
+### Wake Steering Application
 
 An overview of the SUBMODELS that compose the present framework are shown in the following [figure](./docs/wfc_framework_apps.png). A description of each application type is provided below:
 
