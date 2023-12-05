@@ -20,24 +20,21 @@ affiliations:
    index: 2
 ---
 
+# A framework for the coordination of Wake Steering strategies
 
 ## Table of Contents
 
-- [A framework for the coordination of Wake Steering strategies](#A framework for the coordination of Wake Steering strategies)
+- [A framework for the coordination of Wake Steering strategies](#a-framework-for-the-coordination-of-Wake-Steering-strategies)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
+  - [How to use this repository](#How-to-use-this-repository)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
+  - [General Framework Architecture](#General-Framework-Architecture)
+  - [Wake Steering Application](#Wake-Steering-Application)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
-
-
-# A framework for the coordination of Wake Steering strategies
 
 ## Introduction
 
@@ -48,7 +45,7 @@ The present repository contains a Simulink-based framework for the execution, mo
 Wind turbine orientation was controlled through a programmable logic computer (PLC) installed at the base of WT1. During the experiment, wind direction and speed was measured through a met-mast installed approximately 300m north of the turbine. This inflow was used to determine the wind direction sector, which was used to assess which offset to provide as an additional input to the wind vane sensor installed on the turbine nacelle, which was therefore fed to the wind turbine controller.
 
 
-##  How to use this repository:
+## How to use this repository:
 
 
 This repository is an extension of the framework for development, deployment and testing of interconnected PLC applications PAL (insert link). This repository contains a set of files and simulink models, which constitute PAL inputs that can be used to deploy a toggler for coordinating different wake steering strategies. For details on PAL setup, model development and how to develop a new project, please refer to the respective documentation. This repository should be placed as a submodule of PAL, which should be added in the \Examples folder of PAL.
