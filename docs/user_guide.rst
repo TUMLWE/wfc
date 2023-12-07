@@ -42,11 +42,11 @@ Generally speaking, there is no strict need to separate **INFLW** from **OFFSET*
 TOGGLER
 ~~~~~~~
 
-The primary supervisory role is handled by the **TOGGLER** application, which executes tasks such as determining the strategy offset to be fed to the *HOST* (and consequently, to the turbine controller) based on a user-defined sequence and wind direction. The "TOGGLER" also ensures that the Wind Farm Control (WFC) is active only under prescribed inflow conditions, according to the active wind direction sector. A schematics of the TOGGLER application is shown in :numref:`Toggler`.
+The primary supervisory role is handled by the **TOGGLER** application, which executes tasks such as determining the strategy offset to be fed to the *HOST* (and consequently, to the turbine controller) based on a user-defined sequence and wind direction. The "TOGGLER" also ensures that the Wind Farm Control (WFC) is active only under prescribed inflow conditions, according to the active wind direction sector. A schematics of the TOGGLER application is shown in :numref:`toggler`.
 
 .. figure:: wfc_framework_toggler.png
    :width: 1000
-   :name: Toggler
+   :name: toggler
 
 In general, the *TOGGLER* block reads its inputs from the *HOST*, similarly to any other *SUBMODEL*. The information about inflow characteristics from the met mast, averaged with a user-defined time windowing, is utilized to determine the active wind direction sector and assess whether wind conditions are suitable for offset provision. Simultaneously, the operational status of the wind turbine is monitored to ensure its power production. A variable "WFC_status" tracks the status of the toggling operations, akin to the "output_InflowOK" variable in the **INFLW** blocks.
 
