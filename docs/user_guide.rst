@@ -23,15 +23,13 @@ A comprehensive overview of the various *SUBMODELS* that constitute the :numref:
    :width: 1000
    :name: framework
 
-INFLW
-~~~~~
+**INFLW**
 
 **INFLW** blocks determine inflow conditions based on available measurements. Their primary function is to provide inputs for offset determination within the **OFFSET** blocks. In the current setup, two identical Simulink models and **init_** files are supplied for both **INFLW** blocks (named with the appendix **_1** and **_2**), although in principle they can be customized to accommodate diverse design choices.
 
 In this specific instance, wind speed inflow is measured at two different heights (116.3 and 54.2m), and used for the calculation of averaged wind speeds, turbulence intensity, and the shear exponent. Additionally, wind direction data is collected and averaged. Various moving averaging configurations for each inflow quantity can be specified through the appropriate **init_** file. The *Simulink* model incorporates checks to validate inputs, flag errors in case of frozen signals or NaN, and encodes the status of the **INFLW** block as a 4-bit signal. This signal is then converted to an integer and provided as an additional output through the variable "output_InflowOK."
 
-OFFSET
-~~~~~~
+**OFFSET**
 
 OFFSET blocks are responsible for calculating offsets, which are subsequently fed to the **TOGGLER** app.
 
@@ -39,8 +37,7 @@ In the current example, three **OFFSET** blocks are included. Similarly to the *
 
 Generally speaking, there is no strict need to separate **INFLW** from **OFFSET**, which could be incorporated in a single application. In the present case, this separation was implemented to enhance modularity and parallel development.
 
-TOGGLER
-~~~~~~~
+**TOGGLER**
 
 The primary supervisory role is handled by the **TOGGLER** application, which executes tasks such as determining the strategy offset to be fed to the *HOST* (and consequently, to the turbine controller) based on a user-defined sequence and wind direction. The "TOGGLER" also ensures that the Wind Farm Control (WFC) is active only under prescribed inflow conditions, according to the active wind direction sector. A schematics of the TOGGLER application is shown in :numref:`toggler`.
 
