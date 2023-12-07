@@ -7,8 +7,8 @@ PAL documentation
    :caption: Contents:
 
    introduction
-   requirements
    howtouse
+   user_guide
    support
    licensing
    acknowledgements
