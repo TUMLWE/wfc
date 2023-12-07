@@ -23,6 +23,8 @@ A comprehensive overview of the various *SUBMODELS* that constitute the :numref:
    :width: 1000
    :name: framework
 
+   WFC Framework applications
+
 **INFLW**
 
 **INFLW** blocks determine inflow conditions based on available measurements. Their primary function is to provide inputs for offset determination within the **OFFSET** blocks. In the current setup, two identical Simulink models and **init_** files are supplied for both **INFLW** blocks (named with the appendix **_1** and **_2**), although in principle they can be customized to accommodate diverse design choices.
@@ -44,6 +46,8 @@ The primary supervisory role is handled by the **TOGGLER** application, which ex
 .. figure:: images/wfc_framework_toggler.png
    :width: 1000
    :name: toggler
+
+   Building blocks of TOGGLER application
 
 In general, the *TOGGLER* block reads its inputs from the *HOST*, similarly to any other *SUBMODEL*. The information about inflow characteristics from the met mast, averaged with a user-defined time windowing, is utilized to determine the active wind direction sector and assess whether wind conditions are suitable for offset provision. Simultaneously, the operational status of the wind turbine is monitored to ensure its power production. A variable "WFC_status" tracks the status of the toggling operations, akin to the "output_InflowOK" variable in the **INFLW** blocks.
 

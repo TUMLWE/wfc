@@ -10,6 +10,8 @@ This repository contains a Simulink-based framework designed for the execution, 
    :width: 1000
    :name: overviewtestsite
 
+   Aerial view of the test site
+
 Wind direction and speed were measured by a met-mast located approximately 300m north of the turbine. This inflow data determined the wind direction sector and, subsequently, the offset calculation. This offset, combined with the misalignment provided by a wind vane sensor on the turbine nacelle, formed a signal that was then fed into the wind turbine controller. The offset calculation was performed by a programmable logic computer (*PLC*) installed at the base of WT1.
 
 
