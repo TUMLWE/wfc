@@ -44,4 +44,4 @@ epub_show_urls = 'footnote'
 
 numfig_format = {'figure': 'Figure %s', 'table': 'Table %s', 'code-block': 'Listing %s'}
 
-html_title = 'WFC Extension for PAL'
+html_title = 'WFC Extension for PAL' 
