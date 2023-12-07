@@ -1,5 +1,5 @@
 ########################
-PAL documentation
+A Framework for the Coordination of Wake Steering Strategies
 ########################
 
 .. toctree::
