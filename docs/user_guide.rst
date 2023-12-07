@@ -17,9 +17,9 @@ Each *PAL* project requires two Excel files as input: "*inputfile.xlsx*" and "*S
 Wake Steering Application
 -------------------------
 
-A comprehensive overview of the various *SUBMODELS* that constitute the :ref:`framework <./docs/wfc_framework_apps.png>` is given below. Each application type is detailed, providing a thorough understanding of their roles and interactions within the overall system.
+A comprehensive overview of the various *SUBMODELS* that constitute the :ref:`framework <wfc_framework_apps.png>` is given below. Each application type is detailed, providing a thorough understanding of their roles and interactions within the overall system.
 
-.. figure:: docs/wfc_framework_apps.png
+.. figure:: wfc_framework_apps.png
    :width: 1000
    :name: WFC Framework
 
@@ -42,9 +42,9 @@ Generally speaking, there is no strict need to separate **INFLW** from **OFFSET*
 TOGGLER
 ~~~~~~~
 
-The primary supervisory role is handled by the **TOGGLER** application, which executes tasks such as determining the strategy offset to be fed to the *HOST* (and consequently, to the turbine controller) based on a user-defined sequence and wind direction. The "TOGGLER" also ensures that the Wind Farm Control (WFC) is active only under prescribed inflow conditions, according to the active wind direction sector. A schematics of the TOGGLER application is shown :ref:`below <./docs/wfc_framework_toggler.png>`.
+The primary supervisory role is handled by the **TOGGLER** application, which executes tasks such as determining the strategy offset to be fed to the *HOST* (and consequently, to the turbine controller) based on a user-defined sequence and wind direction. The "TOGGLER" also ensures that the Wind Farm Control (WFC) is active only under prescribed inflow conditions, according to the active wind direction sector. A schematics of the TOGGLER application is shown :ref:`below <wfc_framework_toggler.png>`.
 
-.. figure:: docs/wfc_framework_toggler.png
+.. figure:: wfc_framework_toggler.png
    :width: 1000
    :name: Toggler
 
