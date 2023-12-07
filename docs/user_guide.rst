@@ -10,7 +10,7 @@ During experiments, the *ITFC* app was developed by the wind turbine manufacture
 
 The *HOST* model undertakes critical responsibilities, including exchanging data with *ITFC* applications, hosting data for *SUBMODEL* access (both read and write), and generating output ".txt" files.
 
-As described in details in the `PAL Documentation <https://tumlwepal-rtd.readthedocs.io/en/latest/index.html>`, *SUBMODEL* applications perform all the higher-level tasks and are provided in the form of *Simulink* models. A detailed description of the specific *SUBMODEL* apps and their operation is provided in the following section.
+As described in details in the `PAL Documentation <https://tumlwepal-rtd.readthedocs.io/en/latest/index.html>`_, *SUBMODEL* applications perform all the higher-level tasks and are provided in the form of *Simulink* models. A detailed description of the specific *SUBMODEL* apps and their operation is provided in the following section.
 
 Each *PAL* project requires two Excel files as input: "*inputfile.xlsx*" and "*SVI_Definition.xlsx*." In consideration of potential storage issues on the *PLC* during testing, the repository includes an additional set of inputs labeled "test" alongside the default files. These test inputs are designed to facilitate focused testing of specific framework subsections, enabling the utilization of extended time histories for the test *ITFC*, thus limiting storage requirements.
 
