@@ -8,7 +8,7 @@ PAL documentation
 
    introduction
    requirements
-   user_guide
+   howtouse
    support
    licensing
    acknowledgements
