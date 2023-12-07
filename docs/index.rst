@@ -7,11 +7,6 @@ A Framework for the Coordination of Wake Steering Strategies
    :caption: Contents:
 
    introduction
-   howtouse
-   user_guide
-   support
-   licensing
-   acknowledgements
 
 
 
