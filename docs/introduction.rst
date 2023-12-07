@@ -4,9 +4,9 @@ Introduction
 Introduction
 ============
 
-This repository contains a Simulink-based framework designed for the execution, monitoring, and coordination of wake steering strategies on a wind turbine. Generalized to exclude any confidential information, the framework was utilized to coordinate two sets of experiments: one aimed at wind power maximization through wake steering, and the other at applying fixed offsets to a wind turbine for wake characterization using LiDARs. These experiments were conducted collaboratively by the Lehrstuhl für Windenergie at the Technische Universität München and the ForWind – Center for Wind Energy Research at the University of Oldenburg, within the federally-funded German project CompactWindII. The experimental site, located in northern Germany, comprises two wind turbines. An aerial view of the test site is provided :ref:`here <./docs/overview_testsite.png>`.
+This repository contains a Simulink-based framework designed for the execution, monitoring, and coordination of wake steering strategies on a wind turbine. Generalized to exclude any confidential information, the framework was utilized to coordinate two sets of experiments: one aimed at wind power maximization through wake steering, and the other at applying fixed offsets to a wind turbine for wake characterization using LiDARs. These experiments were conducted collaboratively by the Lehrstuhl für Windenergie at the Technische Universität München and the ForWind - Center for Wind Energy Research at the University of Oldenburg, within the federally-funded German project CompactWindII. The experimental site, located in northern Germany, comprises two wind turbines. An aerial view of the test site is provided :ref:`here <overview_testsite.png>`.
 
-.. image:: ./docs/overview_testsite.png
+.. image:: overview_testsite.png
    :alt: Overview of the test site
    :align: center
 
