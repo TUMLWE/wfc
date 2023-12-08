@@ -4,7 +4,7 @@
 
 project = 'PAL WFC - Documentation'
 copyright = '2023, Lehrstuhl für Windenergie, Technische Universität München'
-author = 'Carlo R Sucameli \and Filippo Campagnolo \and Vlaho Petrović \and Paul Hulsman \and Carlo L Bottasso'
+author = 'CR Sucameli, F Campagnolo, V Petrović, P Hulsman and CL Bottasso'
 
 release = '0.1'
 version = '0.1.0'
