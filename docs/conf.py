@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'WFC extension for PAL     Documentation'
+project = 'PAL WFC - Documentation'
 copyright = '2023, Lehrstuhl für Windenergie, Technische Universität München'
-author = 'Carlo R. Sucameli et al.'
+author = 'Carlo R Sucameli \and Filippo Campagnolo \and Vlaho Petrović \and Paul Hulsman \and Carlo L Bottasso'
 
 release = '0.1'
 version = '0.1.0'
@@ -44,4 +44,4 @@ epub_show_urls = 'footnote'
 
 numfig_format = {'figure': 'Figure %s', 'table': 'Table %s', 'code-block': 'Listing %s'}
 
-html_title = 'WFC Extension for PAL' 
+html_title = 'PAL WFC - Documentation'
