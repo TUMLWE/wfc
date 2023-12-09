@@ -8,14 +8,14 @@ load(params_filename)
 
 
 % Control Checks Parameters
-MovAvWS = [600];                 % Moving Average In Seconds for Hub Height WindSpeed
-MovAvWDir = [600];               % Moving Average In Seconds for Hub Height WindDirection
-MovAvWMisalignment = [600];      % Moving Average In Seconds for Nacelle Wind Vane Misalignment
+MovAvWS = [30];                 % Moving Average In Seconds for Hub Height WindSpeed
+MovAvWDir = [30];               % Moving Average In Seconds for Hub Height WindDirection
+MovAvWMisalignment = [30];      % Moving Average In Seconds for Nacelle Wind Vane Misalignment
 
 % Toggler Settings
 
-InflowChecks_WaitTime  =  100;      % Duration of hysteresis block on inflow check. This is used to prevent rapid switching of WFC activation
-TogglingSeconds        = 35 * 60 ;  % Duration of toggling for each strategy [seconds]
+InflowChecks_WaitTime  =  100;      % Duration of hysteresis block on inflow check. This is used to prevent rapid switching of WFC activation [s]
+TogglingSeconds        = 3 * 60 ;  % Duration of toggling for each strategy [seconds]
 
 Greedy_Status   = logical(true);  % This deactivates toggling with greedy
 WFC_1_Status    = logical(true);  % This deactivates toggling with strategy 1
@@ -38,30 +38,27 @@ CTRL.AutomTimeMGMT.ReductionFactor = 10; %[-] reduction factor for once a strate
 % Saturation Block
 CTRL.SatBlock.WFC_OffsetRange = [-20 20];  % limit in degrees of offset
 
-% WaitTimeBeforeDeactivating = 100; % [s]
-% CTRL.SatBlock.WaitTimeBeforeDeact = round(1/sample_time.*WaitTimeBeforeDeactivating);
-
 % Check input and startup
-StartupTimeSamples = 600; % seconds before providing outputs
-MovAvErrorCheck    = 10; % seconds for the check
+StartupTimeSamples = 30; % seconds before providing outputs, startup time
+MovAvErrorCheck    = 10; % moving average window for the check on the inputs [seconds]
 CTRL.InputCheck.StartupTimeSamples = round(1/sample_time.*StartupTimeSamples);
 CTRL.InputCheck.MovAvErrorCheck = round(1/sample_time.*MovAvErrorCheck);
 
 % Turbine Operational Parameters
 %WT3
-CTRL.WT3Par.PowProdStatus = 30;  % this should be replaced with the power production status 
+CTRL.WT3Par.PowProdStatus = 10;  % this should be replaced with the power production status of the turbine
 
 % Create Model Struct (use this section to control on which sector to provide which offset)
 CTRLSector.SectorLabel = [1;2];   % label of control sectors
-CTRLSector.WakeSteering_WSRange = [4 11;   % wind speed range for sectors identification [m/s]
+CTRLSector.WakeSteering_WSRange = [4 11;   % wind speed range for wfc in each sectors [m/s]
     4 11];
 
-CTRLSector.WakeSteering_WDirRange = [191 259;   % wind direction range for sectors identification [deg]
+CTRLSector.WakeSteering_WDirRange = [191 259;   % wind direction range for wfc in each sectors [deg]
     268 20];
 
-CTRLSector.NacOrientationIsOK = [180 20    % nacelle orientation range for sectors identification [deg] (necessary to prevent waked met mast signals to be used as a reference)
+CTRLSector.NacOrientationIsOK = [180 20    % nacelle orientation range for wfc in each sectors [deg] (necessary to prevent waked met mast signals to be used as a reference)
     180 20];
-CTRLSector.MisalignmentLimit = [25; 25];   % wind turbine misalignment range for sectors identification [deg]
+CTRLSector.MisalignmentLimit = [25; 25];   % wind turbine misalignment range for wfc in each sectors [deg]
 
 CTRLSector.Sect1_WFCStrategiesLabel = [1 2 3];
 CTRLSector.Sect2_WFCStrategiesLabel = [4];

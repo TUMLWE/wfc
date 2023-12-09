@@ -4,7 +4,6 @@ load(params_filename)
 % Variable definition
 
 % This is only needed if some of parameters should be changed.
-% Default values (already set up in Simulink):
 
 % Explanation: The yaw offset is chosen from the vector possible_offsets
 % (in degrees) and held for waiting_time (in seconds, not corrected for 
